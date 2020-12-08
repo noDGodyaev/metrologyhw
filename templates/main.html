@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+          rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="container pad" style="background-color: #8aa0b2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="../static/Logo.jpg" width="45" height="45" class="d-inline-block align-top " alt="logo"
+             style="margin-right: 5mm">
+        <a class="navbar-brand col-sm-12 col-lg-6" href="#">Домашнее задание <br>"Метрология" БИВ181</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item-my">
+                    <a class="nav-link" href="#">Документация</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="margin-top: 0.5cm;">
+        <div class="card-deck">
+            <!-- карточка №1 -->
+            <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+            <div class="card mb-4">
+                <img class="card-img-top img-fluid" src="../static/load.jpg">
+                <div class="card-body">
+                    <form action='' method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="my_file">Загрузите файл с данными</label>
+                            <input type="file" class="form-control-file" name='file' multiple='' id="my_file">
+                            <input type='submit' value='Загрузить'>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- карточка №2 -->
+            <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+            <div class="card mb-4">
+                <img class="card-img-top img-fluid" src="../static/Integer.png">
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for='my_num'>
+                            Введите число параллельных потоков.
+                            Натурально число.
+                        </label>
+                        <input class="form-control" type="text" id='my_num'
+                               placeholder="Введите число">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="buttonclick">Подтвердить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- карточка №3 -->
+            <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+            <div class="card mb-4">
+                <img class="card-img-top img-fluid" src="../static/result.jpg">
+                <div class="card-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
+                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p class="card-text" id="result">Ответ:
+                    <div id="min"></div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="row">
+                <div class="col-md-3 footer-about wow fadeInUp animated"
+                     style="visibility: visible; animation-name: fadeInUp;padding-bottom: 10mm;">
+                    <img class="logo-footer footer-my" src="../static/MIEM.png" alt="logo-footer"
+                         data-at2x="assets/img/logo.png"
+                         style="padding-top: 20mm">
+                </div>
+                <div class="col-md-4 offset-md-1 footer-contact wow fadeInDown animated"
+                     style="visibility: visible; animation-name: fadeInDown; padding-bottom: 10mm;">
+                    <img class="logo-footer footer-my" src="../static/HSE.png" alt="logo-footer"
+                         data-at2x="assets/img/logo.png" style="margin-top: 2mm;">
+                </div>
+                <div class="col-md-4 footer-links wow fadeInUp animated"
+                     style="visibility: visible; animation-name: fadeInUp;padding-top: 25mm">
+                    <div class="row">
+                        <div class="col">
+                            <h3 style="text-align: center">Участники</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="my-font" style="font-weight: bold">Годяев Дмитрий
+                                БИВ181</p>
+                            <p class="my-font">Каграманян Давид БИВ184</p>
+                            <p class="my-font">Лёрнер Анатолий БИВ181</p>
+                            <p class="my-font">Беллиев Ильяс БИВ181</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" style="background-color: #007bff">
+                <p style="font-family: 'Work Sans', sans-serif;text-align: center"> Moscow 2020 </p>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../static/jquery-3.5.1.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+<script>
+    const min = 0;
+    document.getElementById("min").innerHTML = min.toString();
+</script>
+
+</body>
+
+
+</html>

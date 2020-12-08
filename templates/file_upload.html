@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {% if error %}
+    <div class="alert alert-warning" role="alert">
+        Файл не выбран! Или выбран файл не с расширением .txt
+    </div>
+    {% endif %}
+    <div class="card mb-4 mx-auto" style="width: 48rem">
+        <img class="card-img-top img-fluid" src="../static/load.jpg">
+        <div class="card-body">
+            <form action='' method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <label for="my_file" class="custom-file-upload" style="padding-right: 10px">Выберите файл с
+                        данными</label>
+                    <input type="file" class="form-file-input" name='file' multiple='' id="my_file"
+                           style="display: none">
+                </div>
+                <div class="form-row">
+                    <input class="btn btn-primary" type='submit' value='Загрузить'>
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $('#my_file').change(function () {
+            var i = $(this).prev('label').clone();
+            var file = $('#my_file')[0].files[0].name;
+            $(this).prev('label').text(file);
+        });
+    </script>
+{% endblock %}

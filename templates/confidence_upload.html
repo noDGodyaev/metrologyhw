@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if error %}
+    <div class="alert alert-warning" role="alert">
+        Не введено число!
+    </div>
+    {% endif %}
+    <div class="card mb-4 mx-auto" style="width: 48rem">
+        <img class="card-img-top img-fluid" src="../static/confidence.jpg">
+        <div class="card-body">
+            <div class="input-group">
+                <form action="" method="post">
+                    <p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Квантиль F распределения</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Любое число" aria-label="Number"
+                               aria-describedby="basic-addon1" name="number">
+                    </div>
+                    </p>
+                    <p>
+                        <input class="btn btn-primary" type="submit">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

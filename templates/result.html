@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+    <div class="card mb-4 mx-auto" style="width: 48rem">
+        <img class="card-img-top img-fluid" src="../static/result.jpg">
+        <div class="card-body">
+            <p class="card-text" id="result">Ответ:
+            <ul class="list-group">
+                <li class="list-group-item">Усредненная межсерийная дисперсия: {{ S_between }}</li>
+                <li class="list-group-item">Средняя сумма дисперсий: {{ S_within }}</li>
+                <li class="list-group-item">Рассчитаная оценка Фишера: {{ Ft }}</li>
+                <li class="list-group-item">Уровень уверености: {{ confidence }}</li>
+                <li class="list-group-item"> Критичная оценка Фишера: {{ Fq }}</li>
+            {% if  error %}
+                <li class="list-group-item list-group-item-success">Систематической погрешности не обнаружено</li>
+             {% else %}
+                <li class="list-group-item list-group-item-warning">Обнаружена систематическая погрешность!</li>
+            {% endif %}
+            </ul>
+            </p>
+        </div>
+        <div class="card-footer">
+            <form action="" method="post">
+                <p>
+                    <a class=" btn btn-primary" href="file_upload"> Вернуться в начало</a>
+                </p>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+<ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+</ul>

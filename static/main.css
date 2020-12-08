@@ -1,0 +1,36 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+.nav-item-my {
+    margin-right: 10mm;
+    margin-left: 10mm;
+}
+
+
+.footer-my {
+    width: 240px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-font {
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    font-size: 14pt;
+}
+.container-border{
+
+}
+body{
+  background-color: gray;
+}
+
+.card{
+    padding-bottom: 10px;
+}
+.wrapper{
+    width: 1400px;
+    margin: 0 auto;
+}
