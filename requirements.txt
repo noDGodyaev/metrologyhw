@@ -5,9 +5,9 @@ gunicorn==20.0.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-mkl-fft==1.2.0
-mkl-random==1.1.1
-mkl-service==2.3.0
+mkl_fft==1.2.0
+mkl_random==1.1.1
+mkl_service==2.3.0
 numpy @ file:///C:/ci/numpy_and_numpy_base_1603466732592/work
 scipy @ file:///C:/ci/scipy_1604596260408/work
 six @ file:///C:/ci/six_1605187374963/work
