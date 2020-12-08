@@ -8,8 +8,5 @@ MarkupSafe==1.1.1
 numpy 
 scipy 
 six 
-blas
-openssl
-setuptools
 Werkzeug==1.0.1
 wincertstore==0.2
