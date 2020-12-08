@@ -10,7 +10,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'UPLOAD_FOLDER')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'txt'}
-input_list = []
+input_list = ['name', 'split', 'f']
 
 
 def isfloat(value):
@@ -33,14 +33,13 @@ def index(name=None):
 
 @app.route('/file_upload', methods=["POST", "GET"])
 def file_upload():
-    input_list.clear()
     error = True
     if request.method == "POST":
         file = request.files["file"]
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            input_list.append(filename)
+            input_list[0] = filename
             error = True
             return redirect('/number_upload')
     else:
@@ -54,7 +53,7 @@ def number_upload():
     if request.method == "POST":
         mystr = request.form.get('number')
         if len(mystr) == 1 and mystr.isdigit() and mystr > '3':
-            input_list.append(int(mystr))
+            input_list[1] = int(mystr)
             app.logger.info(input_list)
             error = True
             return redirect('/confidence_upload')
@@ -69,7 +68,7 @@ def confidence_upload():
     if request.method == "POST":
         mystr = request.form.get('number')
         if isfloat(mystr):
-            input_list.append(float(mystr))
+            input_list[2] = float(mystr)
             app.logger.info(input_list)
             return redirect('/result')
     else:
@@ -77,9 +76,14 @@ def confidence_upload():
     return render_template('confidence_upload.html', error=error)
 
 
+Flag = True
+
+
 @app.route('/result', methods=["POST", "GET"])
 def result():
     resultans = count.calculate(str(input_list[0]), input_list[1], input_list[2])
+    os.remove('UPLOAD_FOLDER/' + input_list[0])
+    input_list.clear()
     return render_template('result.html', error=True,
                            S_between=resultans[1],
                            S_within=resultans[2],
@@ -90,3 +94,4 @@ def result():
 
 if __name__ == '__main__':
     app.run()
+    os.remove('UPLOAD_FOLDER/' + input_list[0])

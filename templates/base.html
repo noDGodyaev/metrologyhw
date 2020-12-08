@@ -31,10 +31,16 @@
             </ul>
         </div>
     </nav>
-        <!-- карточка №1 -->
-        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-        {% block content %}
-        {% endblock content %}
+    <!-- карточка №1 -->
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="w-40 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
     <footer>
         <div class="footer-top">
             <div class="row">
