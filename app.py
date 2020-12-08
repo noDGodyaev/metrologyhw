@@ -83,7 +83,7 @@ Flag = True
 @app.route('/result', methods=["POST", "GET"])
 def result():
     resultans = count.calculate(str(input_list[0]), input_list[1], input_list[2])
-    os.remove('UPLOAD_FOLDER/' + input_list[0])
+    #os.remove('UPLOAD_FOLDER/' + input_list[0])
     input_list.clear()
     return render_template('result.html', error=True,
                            S_between=resultans[1],
