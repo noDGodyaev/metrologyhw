@@ -62,6 +62,9 @@ def number_upload():
     return render_template('number_upload.html', error=error)
 
 
+resultans = []
+
+
 @app.route('/confidence_upload', methods=["POST", "GET"])
 def confidence_upload():
     error = True
@@ -70,6 +73,7 @@ def confidence_upload():
         if isfloat(mystr):
             input_list[2] = float(mystr)
             app.logger.info(input_list)
+            resultans = count.calculate(str(input_list[0]), input_list[1], input_list[2])
             return redirect('/result')
     else:
         error = False
@@ -81,7 +85,6 @@ Flag = True
 
 @app.route('/result', methods=["POST", "GET"])
 def result():
-    resultans = count.calculate(str(input_list[0]), input_list[1], input_list[2])
     os.remove('UPLOAD_FOLDER/' + input_list[0])
     input_list.clear()
     return render_template('result.html', error=True,
