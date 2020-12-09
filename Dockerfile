@@ -1,18 +1,15 @@
 #Grab the latest alpine image
-FROM alpine:latest
+FROM heroku/miniconda
 
-# Install python and pip
-RUN apk add --no-cache --update python3 py3-pip bash
-ADD ./requirements.txt /tmp/requirements.txt
+ADD ./webapp/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
-RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+RUN pip install -qr /tmp/requirements.txt
 
 # Add our code
-ADD ./ /opt/
-WORKDIR /opt/
+ADD ./webapp /opt/webapp/
+WORKDIR /opt/webapp
 
-FROM heroku/miniconda
 RUN conda install scipy
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku			
